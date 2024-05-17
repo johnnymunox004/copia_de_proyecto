@@ -17,7 +17,7 @@ function App() {
     <Authprovider>
       <TaskProvider>
         <BrowserRouter>
-          <main className=" container mx-auto px-10">
+          <main className=" bg-indigo-900">
             <Navbar />
 
             <Routes>

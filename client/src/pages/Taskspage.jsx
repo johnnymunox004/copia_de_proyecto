@@ -9,14 +9,19 @@ function TasksPage() {
     getTasks();
   }, []);
 
-  if ((tasks.length === 0)) return (<h1>no hay tareas</h1>);
-
   return (
-    <div className=" grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
-      {tasks.map((task) => (
-        <Taskcard key={task._id} task={task} />
-      ))}
-    </div>
+    <>
+              <img
+          src="/v69.jpg"
+          className="absolute object-cover w-full h-full "
+        />
+      <div className="  bg-blue-300 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 py-20   ">
+        {tasks.map((task) => (
+          <Taskcard key={task._id} task={task} />
+        ))}
+      </div>
+
+    </>
   );
 }
 

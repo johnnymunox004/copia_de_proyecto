@@ -22,8 +22,13 @@ function Registerpage() {
   });
 
   return (
+    <>  
+              <img
+          src="/v68.jpg"
+          className="absolute object-cover w-full h-full "
+        />
     <div className="flex h-[calc(100vh-100px)] items-center justify-center ">
-      <div className="  bg-slate-600 max-w-md p-10 rounded-md">
+      <div className="  bg-slate-600 max-w-md p-10 rounded-md z-10">
         {registerErrors.map((error, i) => (
           <div className="bg-red-500 p-2 text-white" key={i}>
             {error}
@@ -73,6 +78,7 @@ function Registerpage() {
         </p>
       </div>
     </div>
+    </>
   );
 }
 
