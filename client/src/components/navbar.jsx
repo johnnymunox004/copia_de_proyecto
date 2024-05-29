@@ -18,7 +18,7 @@ function Navbar() {
                 to="/add-task"
                 className="  bg-indigo-500 px-4 py-1 rounded-sm"
               >
-                añadirtarea
+                añadir empleado
               </Link>
             </li>
             <li>

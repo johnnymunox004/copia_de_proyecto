@@ -4,8 +4,12 @@ import { createAccesToken } from "../libs/jwt..js";
 import jwt from 'jsonwebtoken';
 import { TOKEN_SECRET } from "../config.js";
 
+
+
+
+
 export const register = async (req, res) => {
-  const { email, password, username } = req.body;
+  const { email, password, username,edad,departamento,rol } = req.body;
 
   try {
     const userFound = await User.findOne({ email });
@@ -19,6 +23,9 @@ export const register = async (req, res) => {
       username,
       email,
       password: passwordHashs,
+      edad,
+      departamento,
+      rol,
     });
     const userSaved = await newUser.save();
     const token = await createAccesToken({ id: userSaved._id });
@@ -27,6 +34,9 @@ export const register = async (req, res) => {
       id: userSaved._id,
       username: userSaved.username,
       email: userSaved.email,
+      edad: userSaved.edad,
+      departamento: userSaved.departamento,
+      rol: userSaved.rol,
       createdAt: userSaved.createdAt,
       updateAt: userSaved.createdAt,
       message: "usuari creado satisfacotiamente",
@@ -95,9 +105,11 @@ export const verifyToken = async (req, res) => {
   jwt.verify(token, TOKEN_SECRET, async (err, user) => {
     if (err) return res.status(401).json({ message: "no autorizado" });
 
+
     const userfound = await User.findById(user.id);
     if (!userfound) return res.status(401).json({ message: "no autorizado" });
 
+    
     return res.json({
       id: userfound._id,
       username: userfound.username,

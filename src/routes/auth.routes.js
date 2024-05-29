@@ -18,13 +18,11 @@ router.post("/login", validateSchema(loginSchema), login);
 
 router.post("/logout", logout);
 
-router.get("/verify", verifyToken );
+router.get("/verify", verifyToken);
 
 router.get("/profile", authRequired, profile);
 
 export default router;
-
-
 
 // import { Router } from "express";: Esta línea importa la función Router de la biblioteca Express.js. Router es una función que crea un nuevo objeto de enrutador.
 // Se importan varias funciones de controlador y middleware de otros módulos.

@@ -1,23 +1,24 @@
 import { z } from "zod";
 
 export const registerSchema = z.object({
-  username: z.string({
-    required_error: "username requuiered",
+  username: z.string().nonempty({
+    message: "username requuiered",
   }),
-  email: z
-    .string({
-      required_error: "email requuiered",
-    })
-    .email({
-      message: "invalid email",
-    }),
-  password: z
-    .string({
-      required_error: "password requuiered",
-    })
-    .min(6, {
-      message: "lacontraseña debe tener al menos 6 caracteres",
-    }),
+  email: z.string().email({
+    message: "invalid email",
+  }),
+  password: z.string().min(6, {
+    message: "lacontraseña debe tener al menos 6 caracteres",
+  }),
+  edad: z.string().max(2,{
+    message: "tienes mas de 100 años?",
+  }),
+  departamento: z.string().nonempty({
+    message: "departamento requuiered",
+  }),
+  rol: z.string().nonempty({
+    message: "rol requuiered",
+  }),
 });
 
 export const loginSchema = z.object({

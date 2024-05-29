@@ -9,7 +9,7 @@ function Registerpage() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signup, isAtuthenticated, errors: registerErrors } = useAuth(); // Aquí corregido
+  const { signup, isAtuthenticated, errors: registerErrors } = useAuth(); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,38 +35,66 @@ function Registerpage() {
           </div>
         ))}
 
-        <form onSubmit={onSubmit}>
-          <h1 className=" bg-slate-600 text-2xl font-bold ">register</h1>
+<form onSubmit={onSubmit}>
+  <h1 className=" bg-slate-600 text-2xl font-bold ">register</h1>
 
-          <input
-            type="text"
-            {...register("username", { required: true })}
-            className=" bg-zinc-700 w-full bg tex-white px-4 py-2 rounded-md my-2"
-            placeholder="Username"
-          />
-          {errors.username && (
-            <p className=" text-red-500">Username is required</p>
-          )}
-          <input
-            type="email"
-            {...register("email", { required: true })}
-            className="w-full bg-zinc-700 tex-white px-4 py-2 rounded-md my-2"
-            placeholder="email"
-          />
-          {errors.email && <p className=" text-red-500">email is required</p>}
-          <input
-            type="password"
-            {...register("password", { required: true })}
-            className="w-full bg-zinc-700 tex-white px-4 py-2 rounded-md my-2"
-            placeholder="password"
-          />
-          {errors.password && (
-            <p className=" text-red-500">password is required</p>
-          )}
-          <button type="submit" className=" bg-blue-500 rounded-sm py-2 px-2">
-            Register
-          </button>
-        </form>
+  <input
+    type="text"
+    {...register("username", { required: true })}
+    className=" bg-zinc-700 w-full bg tex-white px-4 py-2 rounded-md my-2"
+    placeholder="Username"
+  />
+  {errors.username && (
+    <p className=" text-red-500">Username is required</p>
+  )}
+  <input
+    type="email"
+    {...register("email", { required: true })}
+    className="w-full bg-zinc-700 tex-white px-4 py-2 rounded-md my-2"
+    placeholder="email"
+  />
+  {errors.email && <p className=" text-red-500">email is required</p>}
+  <input
+    type="password"
+    {...register("password", { required: true })}
+    className="w-full bg-zinc-700 tex-white px-4 py-2 rounded-md my-2"
+    placeholder="password"
+  />
+  {errors.password && (
+    <p className=" text-red-500">password is required</p>
+  )}
+  <input
+    type="number"
+    {...register("edad", { required: true })}
+    className="w-full bg-zinc-700 tex-white px-4 py-2 rounded-md my-2"
+    placeholder="Edad"
+  />
+  {errors.edad && (
+    <p className=" text-red-500">Edad is required</p>
+  )}
+  <input
+    type="text"
+    {...register("departamento", { required: true })}
+    className="w-full bg-zinc-700 tex-white px-4 py-2 rounded-md my-2"
+    placeholder="Departamento"
+  />
+  {errors.departamento && (
+    <p className=" text-red-500">Departamento is required</p>
+  )}
+  <input
+    type="text"
+    {...register("rol", { required: true })}
+    className="w-full bg-zinc-700 tex-white px-4 py-2 rounded-md my-2"
+    placeholder="Rol"
+  />
+  {errors.rol && (
+    <p className=" text-red-500">Rol is required</p>
+  )}
+  <button type="submit" className=" bg-blue-500 rounded-sm py-2 px-2">
+    Register
+  </button>
+</form>
+
         <p className=" flex gap-x-2 justify-between">
           ya tienes una cuenta?{""}
           <Link

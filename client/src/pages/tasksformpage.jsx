@@ -47,7 +47,7 @@ function TasksformPage() {
     <div className="flex h-[calc(100vh-100px)] items-center justify-center ">
       <div className=" bg-zinc-900  max-w-md w-full p-10 rounded-md">
         <form onSubmit={onSubmit}>
-          <label htmlFor="title">title</label>
+          <label htmlFor="title">nombre</label>
           <input
             type="text"
             placeholder="tiitle"
@@ -55,7 +55,7 @@ function TasksformPage() {
             className=" w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
             autoFocus
           />
-          <label htmlFor="descripccion">descripccion</label>
+          <label htmlFor="descripccion">edad</label>
 
           <textarea
             rows="3"

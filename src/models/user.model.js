@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-
 const userSchema = new mongoose.Schema({
     username:{
         type: String,
@@ -16,11 +15,30 @@ const userSchema = new mongoose.Schema({
     password:{
         type: String,
         required: true,
+    },
+    edad:{
+        type: String,
+        required: true,
+        validate: {
+          validator: function(v) {
+            return v.length <= 2;
+          },
+          message: props => `tienes mas de 100 años?`
+        },
+    },
+    departamento:{
+        type: String,
+        required: true,
+        trim:true
+    },
+    rol:{
+        type: String,
+        required: true,
+        trim:true
     }
 },{
     timestamps:true
 })
-
 
 export default mongoose.model('User', userSchema)
 
